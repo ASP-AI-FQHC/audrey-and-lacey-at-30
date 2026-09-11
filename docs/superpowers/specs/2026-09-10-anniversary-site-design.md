@@ -1,6 +1,6 @@
-# Audrey & Lacey at 30 — site design
+# Lacey & Audrey at 30 — site design
 
-Approved in chat on 2026-09-10. Owner: Guy Fuller. Domain: AudreyandLaceyat30.com (GoDaddy).
+Approved in chat on 2026-09-10. Owner: Guy Fuller. Domain: laceyandaudreyat30.com (GoDaddy, registered 2026-09-10).
 
 ## Purpose
 A keepsake for Audrey (she) and Lacey (he) Watkins, marking thirty years of marriage,
@@ -9,7 +9,7 @@ August 16, 2026. Guests will mostly open it from a text message on a phone.
 
 ## Decisions
 - Front door: the printed banner portrait (IMG_3136), cropped to the fabric edges.
-- Names read "Audrey & Lacey" to match the domain.
+- Names read "Lacey & Audrey" to match the domain and the printed banner.
 - Sections: front door, a note from Guy, curated gallery (best of each near-duplicate
   pair, ten images including the banner), three clips, closing line.
 - Hosting: static site on GitHub Pages with the custom domain; DNS at GoDaddy.

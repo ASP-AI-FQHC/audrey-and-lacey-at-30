@@ -180,11 +180,20 @@ a { color: inherit; }
 }
 .note p + p { margin-top: 1.3em; }
 
-.note .signoff {
-  margin-top: 2.2em;
+.note .verse {
+  font-family: var(--display);
+  font-size: clamp(26px, 2.6vw, 42px);
+  line-height: 1.25;
+  max-width: 24ch;
+}
+.note .verse + .verse,
+.note .who + .verse { margin-top: 1.4em; }
+
+.note .who {
+  margin-top: .5em;
   font-family: var(--display);
   font-style: italic;
-  font-size: 1.5em;
+  font-size: clamp(20px, 1.8vw, 28px);
   color: var(--gold);
 }
 

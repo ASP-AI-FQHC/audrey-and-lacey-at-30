@@ -267,6 +267,7 @@ a { color: inherit; }
 .tile.portrait { grid-column: span 4; grid-row: span 6; }
 .tile.square   { grid-column: span 3; grid-row: span 3; }
 .tile.mid      { grid-column: span 5; grid-row: span 4; }
+.tile.low      { grid-column: span 5; grid-row: span 3; }
 
 /* ---------- Moments ---------- */
 
@@ -432,7 +433,7 @@ a { color: inherit; }
   .tile.tall     { grid-column: span 1; aspect-ratio: 3 / 4; }
   .tile.portrait { grid-column: span 2; aspect-ratio: 4 / 5; }
   .tile.square   { grid-column: span 1; aspect-ratio: 1; }
-  .tile.wide, .tile.mid { grid-column: span 2; aspect-ratio: 4 / 3; }
+  .tile.wide, .tile.mid, .tile.low { grid-column: span 2; aspect-ratio: 4 / 3; }
 
   .clips { grid-template-columns: 1fr; }
   .clip.lead { grid-column: 1; }

@@ -1,0 +1,26 @@
+# Pages CMS (pagescms.org): the editor Lacey and Audrey use to add their own photos.
+# Uploads land in site/photos/theirs; the list of photos lives in site/data/their-photos.json.
+# The deploy workflow resizes every upload and strips its metadata before publishing.
+
+media:
+  input: site/photos/theirs
+  output: /photos/theirs
+  rename: safe
+  extensions: [jpg, jpeg, png, webp, heic, heif]
+
+content:
+  - name: their-photos
+    label: Our photos
+    description: Add a photo, write a line about it if you like, then press Save. It appears on the site a couple of minutes later. Drag to change the order.
+    type: file
+    path: site/data/their-photos.json
+    format: json
+    list: true
+    fields:
+      - name: image
+        label: Photo
+        type: image
+        required: true
+      - name: caption
+        label: A line about it (optional)
+        type: string

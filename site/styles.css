@@ -563,3 +563,54 @@ a { color: inherit; }
   .clips { grid-template-columns: 1fr; }
   .clip-feature { grid-template-columns: 1fr; }
 }
+
+/* ---------- From Lacey & Audrey (their own uploads) ---------- */
+
+.theirs {
+  margin: clamp(72px, 12vh, 160px) var(--pad) 0;
+  padding-top: clamp(40px, 6vh, 80px);
+  border-top: 1px solid rgba(201, 169, 97, .22);
+}
+
+.theirs .section-head { padding-left: 0; padding-right: 0; }
+.theirs .section-head h2 { grid-column: 1 / 8; }
+.theirs .section-head p { grid-column: 8 / 13; }
+
+.shots {
+  max-width: calc(var(--maxw) - 2 * var(--pad));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+  gap: clamp(14px, 2vw, 28px) var(--gap);
+  align-items: start;
+}
+
+.shot {
+  margin: 0;
+}
+
+.tile-shot {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 100%;
+  background: var(--ink-2);
+  cursor: zoom-in;
+  overflow: hidden;
+  display: block;
+}
+
+.tile-shot img {
+  width: 100%;
+  height: auto;
+  transition: transform .9s cubic-bezier(.2, .7, .2, 1);
+}
+
+.tile-shot:hover img { transform: scale(1.025); }
+
+.shot figcaption {
+  margin-top: 10px;
+  color: var(--ash);
+  font-size: .92em;
+  max-width: 40ch;
+}

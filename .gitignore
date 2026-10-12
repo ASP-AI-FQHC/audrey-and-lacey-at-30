@@ -3,3 +3,4 @@ jpg/
 thumbs/
 .venv/
 .DS_Store
+_site/

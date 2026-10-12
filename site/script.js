@@ -1,6 +1,48 @@
+// Lacey and Audrey's own photos, added through Pages CMS into data/their-photos.json.
+// The publish build makes a thumbnail for each in photos/theirs/s/.
+function loadTheirPhotos() {
+  var section = document.getElementById('theirs');
+  if (!section || !window.fetch) return Promise.resolve();
+  return fetch('data/their-photos.json', { cache: 'no-cache' })
+    .then(function (r) { return r.ok ? r.json() : []; })
+    .then(function (photos) {
+      var grid = section.querySelector('.shots');
+      photos.forEach(function (p) {
+        if (!p || !p.image) return;
+        var full = String(p.image).replace(/^\//, '');
+        var thumb = full.replace(/([^\/]+)$/, 's/$1');
+        var words = (p.caption || '').trim();
+        var alt = words || 'A photo shared by Lacey and Audrey';
+
+        var fig = document.createElement('figure');
+        fig.className = 'shot';
+        var btn = document.createElement('button');
+        btn.className = 'tile-shot';
+        btn.type = 'button';
+        btn.setAttribute('data-full', full);
+        btn.setAttribute('data-alt', alt);
+        var img = document.createElement('img');
+        img.loading = 'lazy';
+        img.alt = alt;
+        img.onerror = function () { img.onerror = null; img.src = full; };
+        img.src = thumb;
+        btn.appendChild(img);
+        fig.appendChild(btn);
+        if (words) {
+          var cap = document.createElement('figcaption');
+          cap.textContent = words;
+          fig.appendChild(cap);
+        }
+        grid.appendChild(fig);
+      });
+      if (grid.children.length) section.hidden = false;
+    })
+    .catch(function () {});
+}
+
 // Lightbox for the gallery. Native <dialog>, keyboard arrows, swipe on touch.
-(function () {
-  var tiles = Array.prototype.slice.call(document.querySelectorAll('.tile'));
+loadTheirPhotos().then(function () {
+  var tiles = Array.prototype.slice.call(document.querySelectorAll('.tile, .tile-shot'));
   var box = document.getElementById('lightbox');
   if (!box || !tiles.length || typeof box.showModal !== 'function') return;
 
@@ -62,4 +104,4 @@
     if (dx > 40) show(current - 1);
     startX = null;
   }, { passive: true });
-})();
+});
